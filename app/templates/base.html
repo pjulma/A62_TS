@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Utilisation du modele : {{ titre_page }}</title>
+</head>
+<body>
+
+
+<div>
+
+    <a href="/index">Home</a>
+    <a href="/form_input">Prediction avec Modele</a>
+</div>
+<hr>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+{% block content %}{% endblock %}
+</body>
+</html>
+
+
