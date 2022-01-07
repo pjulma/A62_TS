@@ -1,0 +1,33 @@
+name: Time-series-collect-data
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    container: docker://dvcorg/cml-py3:latest
+   
+    steps:
+    - uses: actions/checkout@v2
+    - name: cml_run
+      env:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        # Your ML workflow goes here
+        pip install -r requirements.txt
+        python collect.py
+        #python model.py
+        # Write your CML report
+        #echo "## Metriques:" >> report.md
+        #cat metrics.txt >> report.md
+        
+        # read files in the docker container
+        ls -l
+        
+        # move file from container to github repository
+        git config --global user.email "pierrot25fr@yahoo.fr"
+        git config --global user.name "pjulma"
+        git add .
+        git commit -m "New file Added"
+        git push
