@@ -10,6 +10,9 @@ MarkupSafe
 numpy
 scikit-learn
 scipy
+pandas
+seaborn
+matplotlib
 threadpoolctl
 Werkzeug
 wincertstore
