@@ -18,6 +18,6 @@ Werkzeug
 wincertstore
 WTForms
 pandas_datareader
-random
+#random
 datetime
 
