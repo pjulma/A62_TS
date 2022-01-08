@@ -66,6 +66,12 @@ plt.show()
 plt.savefig('appleClosePrice.png',dpi=12)
 
 #
+#We can also use a probability distribution to visualize the data in our series.
+#Distribution of the dataset
+df_close = stock_data['Close']
+df_close.plot(kind='kde');
+
+#
 #Test for staionarity
 from statsmodels.tsa.stattools import adfuller
 from statsmodels.tsa.seasonal import seasonal_decompose
@@ -93,6 +99,21 @@ def test_stationarity(timeseries):
     print(output)
 test_stationarity(df_close)
 plt.savefig('test_stationarity.png',dpi=120)
+
+#
+#if not stationary then eliminate trend
+#Eliminate trend
+from pylab import rcParams
+rcParams['figure.figsize'] = 10, 6
+df_log = np.log(df_close)
+moving_avg = df_log.rolling(20).mean()
+std_dev = df_log.rolling(20).std()
+plt.legend(loc='best')
+plt.title('Moving Average')
+plt.plot(std_dev, color ="black", label = "Standard Deviation")
+plt.plot(moving_avg, color="red", label = "Mean")
+plt.legend()
+#plt.show()
 
 #
 #split data into train and training set
