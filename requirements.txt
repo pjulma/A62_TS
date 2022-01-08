@@ -17,3 +17,4 @@ threadpoolctl
 Werkzeug
 wincertstore
 WTForms
+pandas_datareader
