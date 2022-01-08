@@ -20,4 +20,6 @@ WTForms
 pandas_datareader
 #random
 datetime
+statsmodels
+math
 
