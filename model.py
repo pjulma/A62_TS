@@ -141,6 +141,25 @@ fitted = model.fit(disp=-1)
 # Forecast
 fc, se, conf = fitted.forecast(126, alpha=0.05)  # 95% conf
 
+#
+# Make as pandas series
+fc_series = pd.Series(fc, index=test_data.index)
+lower_series = pd.Series(conf[:, 0], index=test_data.index)
+upper_series = pd.Series(conf[:, 1], index=test_data.index)
+# Plot
+plt.figure(figsize=(10,5), dpi=100)
+plt.plot(train_data, label='training data')
+plt.plot(test_data, color = 'blue', label='Actual Stock Price')
+plt.plot(fc_series, color = 'orange',label='Predicted Stock Price')
+plt.fill_between(lower_series.index, lower_series, upper_series, 
+                 color='k', alpha=.10)
+plt.title('APPLE Price Prediction')
+plt.xlabel('Time')
+plt.ylabel('APPLE Stock Price')
+plt.legend(loc='upper left', fontsize=8)
+#plt.show()
+plt.savefig('applePricePrediction.png',dpi=120)
+
 
 #
 from sklearn.metrics import mean_squared_error, mean_absolute_error
