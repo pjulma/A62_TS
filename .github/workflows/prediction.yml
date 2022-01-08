@@ -28,7 +28,8 @@ jobs:
         cml-publish trainTest.png --md >>report.md        
         cml-publish applePricePrediction.png --md >>report.md
         
-        cml-sent-comment report.md
+        cml-send-comment report.md
+        
         # read files in the docker container
         ls -l
         
