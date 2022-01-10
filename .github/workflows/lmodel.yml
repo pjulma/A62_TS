@@ -16,12 +16,12 @@ jobs:
       run: |
         # Your ML workflow goes here
         pip install -r requirements.txt
-        python collect.py
+        #python collect.py
         #python model.py
         # Write your CML report
         #echo "## Metriques:" >> report.md
         #cat metrics.txt >> report.md
-        python preprocesing.py
+        #python preprocesing.py
         
         # read files in the docker container
         ls -l
