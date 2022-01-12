@@ -176,7 +176,7 @@ print('RMSE: '+str(rmse))
 mape = np.mean(np.abs(fc - test_data)/np.abs(test_data))
 print('MAPE: '+str(mape))
 
-#
+##
 # Write scores to a file
 with open("metrics.txt", 'w') as outfile:
         outfile.write("MSE:  {0:2.5f} \n".format(mse))
