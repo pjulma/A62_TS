@@ -16,10 +16,10 @@ jobs:
       run: |
         # Your ML workflow goes here
         pip install -r requirements.txt
+        python model.py
         python collect.py
         python eda.py
         python preprocesing.py
-        python model.py
         
         # Write your CML report
         echo "## Les Metriques:" >> report.md
