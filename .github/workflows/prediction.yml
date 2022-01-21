@@ -39,3 +39,7 @@ jobs:
         git add .
         git commit -m "New file Added"
         git push
+        
+        # clear repository 
+        git rm <appleClosePrice.png> <applePricePrediction.png> <applePricePrediction.png> <test_stationarity.png> <trainTest.png> <chat.txt> <metrics.txt>
+        git commit -m 'clear'
