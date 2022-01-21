@@ -16,6 +16,9 @@ jobs:
       run: |
         # Your ML workflow goes here
         pip install -r requirements.txt
+        python collect.py
+        python eda.py
+        python preprocesing.py
         python model.py
         
         # Write your CML report
@@ -39,7 +42,3 @@ jobs:
         git add .
         git commit -m "New file Added"
         git push
-        
-        # clear repository 
-        git rm <appleClosePrice.png> <applePricePrediction.png> <applePricePrediction.png> <test_stationarity.png> <trainTest.png> <chat.txt> <metrics.txt>
-        git commit -m 'clear'
