@@ -12,7 +12,7 @@ from pandas_datareader.data import DataReader
 # Pour les horodatages
 from datetime import datetime, date
 
-
+print("Starting eda.py ...\n")
 
 # Les actions que nous utiliserons pour cette analyse
 tech_list = ['AAPL', 'AMZN', 'WMT', 'NFLX','MAR','AAL']
@@ -42,15 +42,16 @@ df = pd.concat(company_list, axis=0)
 
 
 ##### Identifier les données manquantes 
+print("Identification des  données manquantes ...\n")
 missing_data = df.isnull()
 missing_data.head(5)
 missing_data.shape
 for column in missing_data.columns.values.tolist():
     print(column)
     print (missing_data[column].value_counts())
-    #print("") 
+    print("") 
 df.isnull().value_counts()
 
 
-##### Ajuster les données manquantes 
+##### Ajuster les données manquantes dans l'etape de Pre-traitement
 

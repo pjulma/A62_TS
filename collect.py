@@ -14,6 +14,8 @@ from pandas_datareader.data import DataReader
 # Pour les horodatages
 from datetime import datetime
 
+print("\nStarting collect.py ...\n")
+
 # Les actions que nous utiliserons pour cette analyse
 tech_list = ['AAPL', 'AMZN', 'WMT', 'NFLX','MAR','AAL']
 
@@ -38,3 +40,4 @@ df = pd.concat(company_list, axis=0)
 
 # Sauvegarder les données collectées sur yahoo dans notre repertoire
 df.to_csv('timeseries.csv')
+print("Fichier timeseries.csv a été generé") 
