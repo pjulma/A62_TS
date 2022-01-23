@@ -1,0 +1,5 @@
+{
+    "python.pythonPath":"C:\\ProgramData\\Anaconda3\\Scripts",
+    "python.terminal.activateEnvironment": true,
+    "terminal.integrated.profiles.windows": "C:\\Windows\\System32\\cmd.exe",
+}
