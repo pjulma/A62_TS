@@ -1,7 +1,11 @@
 from app import app
 from flask import render_template
 import pickle, numpy as np
-#from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LinearRegression
+
+from statsmodels.tsa.stattools import adfuller
+from statsmodels.tsa.seasonal import seasonal_decompose
+from statsmodels.tsa.arima_model import ARIMA
 
 @app.route('/')
 @app.route('/index')
@@ -22,8 +26,8 @@ def form_input():
     form = ModelePredictionForm()
     if form.validate_on_submit():
         #formuler le data
-        sample_data = [form.tv.data, form.radio.data, form.journaux.data]
-        clean_data = [float(i) for i in sample_data]
+        sample_data = [form.Action.data]
+        clean_data = [str(i) for i in sample_data]
         data = []
         data.extend(clean_data[0:3])
         # Reshape the Data
@@ -31,11 +35,7 @@ def form_input():
         #lire le modele
         rl_model = pickle.load(open('modele_LR.pkl', 'rb'))
         resultat_prediction = rl_model.predict(ex1)
-        flash('Radio: {}, TV:{}, Journaux:{} donne Y={}'.format(
-            form.radio.data, form.tv.data, form.journaux.data, resultat_prediction))
+        flash('Action: {} donne Y={}'.format(
+            form.Action.data, resultat_prediction))
         return redirect('/index')
     return render_template('form_input.html', title='Modele de Prediction', form=form)
-
-
-
-
