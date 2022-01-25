@@ -1,11 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\app",
     "\\app\\data",
-    "\\app\\templates",
-    "\\devflask",
-    "\\devflask\\Scripts"
+    "\\app\\templates"
   ],
   "PreviewInSolutionExplorer": false
 }

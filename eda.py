@@ -12,46 +12,49 @@ from pandas_datareader.data import DataReader
 # Pour les horodatages
 from datetime import datetime, date
 
-print("Starting eda.py ...\n")
+def startEDA():
+    print("\nStarting eda.py ...")
 
-# Les actions que nous utiliserons pour cette analyse
-tech_list = ['AAPL', 'AMZN', 'WMT', 'NFLX','MAR','AAL']
+    # Les actions que nous utiliserons pour cette analyse
+    tech_list = ['AAPL', 'AMZN', 'WMT', 'NFLX','MAR','AAL']
 
-# Heures de fin et de début de la capture de données
-end = datetime.now()
-start = datetime(end.year - 5, end.month, end.day)
-
-
-# Boucle For pour saisir les données Yahoo Finance et les définir en tant que dataframe
-for stock in tech_list:   
-    #print("stock ---------- ",stock)
-    # Définir DataFrame comme symbole boursier
-    globals()[stock] = DataReader(stock, 'yahoo', start, end)
-    
- #
- # create dataframe
-company_list = [AAPL, AMZN, WMT, NFLX, MAR, AAL]
-company_name = ["APPLE", "AMAZON", "WALMART", "NETFLIX","MARRIOTT","AME_AIRL"]
-
-for company, com_name in zip(company_list, company_name):
-    company["company_name"] = com_name
-    
-df = pd.concat(company_list, axis=0)
+    # Heures de fin et de début de la capture de données
+    end = datetime.now()
+    start = datetime(end.year - 5, end.month, end.day)
 
 
+    # Boucle For pour saisir les données Yahoo Finance et les définir en tant que dataframe
+    for stock in tech_list:   
+        #print("stock ---------- ",stock)
+        # Définir DataFrame comme symbole boursier
+        globals()[stock] = DataReader(stock, 'yahoo', start, end)
+        
+    #
+    # create dataframe
+    company_list = [AAPL, AMZN, WMT, NFLX, MAR, AAL]
+    company_name = ["APPLE", "AMAZON", "WALMART", "NETFLIX","MARRIOTT","AME_AIRL"]
+
+    for company, com_name in zip(company_list, company_name):
+        company["company_name"] = com_name
+        
+    df = pd.concat(company_list, axis=0)
 
 
-##### Identifier les données manquantes 
-print("Identification des  données manquantes ...\n")
-missing_data = df.isnull()
-missing_data.head(5)
-missing_data.shape
-for column in missing_data.columns.values.tolist():
-    print(column)
-    print (missing_data[column].value_counts())
-    print("") 
-df.isnull().value_counts()
 
 
-##### Ajuster les données manquantes dans l'etape de Pre-traitement
+    ##### Identifier les données manquantes 
+    print("Identification des  données manquantes ...\n")
+    missing_data = df.isnull()
+    missing_data.head(5)
+    missing_data.shape
+    for column in missing_data.columns.values.tolist():
+        print(column)
+        print (missing_data[column].value_counts())
+        print("") 
+    df.isnull().value_counts()
+
+    df.to_csv('timeseries.csv')
+    print("Fichier 'xxx.png' ont été generés ???? ---> À regler (PNGs / PDF avec les resultats de l'EDA") 
+
+    ##### Ajuster les données manquantes dans l'etape de Pre-traitement
 

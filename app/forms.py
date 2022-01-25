@@ -8,3 +8,7 @@ class ModelePredictionForm(FlaskForm):
     journaux = StringField('Journaux', validators=[DataRequired()])
 
     submit = SubmitField('Prédire')
+
+class ActionPredictionForm(FlaskForm):
+    action = StringField('Action', validators=[DataRequired()])
+    submit = SubmitField('Prédire')
