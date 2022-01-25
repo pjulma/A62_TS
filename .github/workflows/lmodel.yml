@@ -16,19 +16,19 @@ jobs:
       run: |
         # Your ML workflow goes here
         pip install -r requirements.txt
-        python collect.py ### sauvegarder sur format .csv
+        #python collect.py ### sauvegarder sur format .csv
         python eda.py     ### prendre le .csv de collect.py
         # Write your CML report
         #echo "## Metriques:" >> report.md
         #cat metrics.txt >> report.md
-        python preprocesing.py  ### prendre le .csv de collect.py
+        #python preprocesing.py  ### prendre le .csv de collect.py
         
         # read files in the docker container
         ls -l
         
         # move file from container to github repository
-        git config --global user.email "pierrot25fr@yahoo.fr"
-        git config --global user.name "pjulma"
-        git add .
-        git commit -m "New file Added"
-        git push
+        #git config --global user.email "pierrot25fr@yahoo.fr"
+        #git config --global user.name "pjulma"
+        #git add .
+        #git commit -m "New file Added"
+        #git push
