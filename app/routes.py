@@ -6,6 +6,7 @@ from sklearn.linear_model import LinearRegression
 from statsmodels.tsa.stattools import adfuller
 from statsmodels.tsa.seasonal import seasonal_decompose
 from statsmodels.tsa.arima_model import ARIMA
+from statsmodels.tsa.arima_model import ARIMAResults
 
 @app.route('/')
 @app.route('/index')
@@ -80,8 +81,11 @@ def inputPredAction():
 
     #Prediction phase
     #rl_model = pickle.load(open('modele_LR.pkl', 'rb'))
+    #rl_model = pickle.load(open('model2.pkl', 'rb'))
+    loaded = ARIMAResults.load('model2.pkl')
+    resultat_prediction = loaded.predict(select)
     #resultat_prediction = rl_model.predict(select)
-    #print("resultat_prediction:" + resultat_prediction)
+    print("resultat_prediction:" + resultat_prediction)
     
     
     return render_template("inputPredAction.html",actionList=actionList, form=form)
