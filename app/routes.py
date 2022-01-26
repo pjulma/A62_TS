@@ -5,8 +5,8 @@ from sklearn.linear_model import LinearRegression
 
 from statsmodels.tsa.stattools import adfuller
 from statsmodels.tsa.seasonal import seasonal_decompose
-from statsmodels.tsa.arima_model import ARIMA
-from statsmodels.tsa.arima_model import ARIMAResults
+from statsmodels.tsa.arima.model import ARIMA,  ARIMAResults, ARIMAResultsWrapper
+
 
 @app.route('/')
 @app.route('/index')
@@ -25,7 +25,7 @@ import eda as eda
 
 
 from flask import  flash, redirect
-
+"""
 @app.route('/form_input', methods=['GET', 'POST'])
 def form_input():
     form = ModelePredictionForm()
@@ -44,7 +44,7 @@ def form_input():
             form.Action.data, resultat_prediction))
         return redirect('/index')
     return render_template('form_input.html', title='Modele de Prediction', form=form)
-
+"""
 @app.route('/inputPredAction', methods=['GET', 'POST'])
 def inputPredAction():
     form = ActionPredictionForm()
@@ -77,14 +77,12 @@ def inputPredAction():
     myEda = eda
     myEda.startEDA()
 
-
-
     #Prediction phase
-    #rl_model = pickle.load(open('modele_LR.pkl', 'rb'))
+    rl_model = ARIMAResults.load('modele_LR.pkl')
     #rl_model = pickle.load(open('model2.pkl', 'rb'))
-    loaded = ARIMAResults.load('model2.pkl')
-    resultat_prediction = loaded.predict(select)
-    #resultat_prediction = rl_model.predict(select)
+    #loaded = ARIMAResults.load('model2.pkl')
+    #resultat_prediction = loaded.predict(select)
+    resultat_prediction = rl_model.predict(select)
     print("resultat_prediction:" + resultat_prediction)
     
     
