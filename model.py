@@ -129,7 +129,7 @@ plt.savefig('trainTest.png',dpi=120)
 
 #
 # Build Model
-from statsmodels.tsa.arima_model import ARIMA
+from statsmodels.tsa.arima_model import ARIMA,ARIMAResults
 # Modeling
 # Build Model
 model = ARIMA(train_data, order=(1,1,0))  
@@ -187,5 +187,9 @@ with open("metrics.txt", 'w') as outfile:
 # save the model here
 
     #Sauvegarder le modele
-import pickle #une autre strategie
-pickle.dump(fitted,open("modele_LR.pkl","wb"))
+#import pickle #une autre strategie
+#pickle.dump(fitted,open("modele_LR.pkl","wb"))
+
+fitted.save('modele_LR.pkl')
+# load model
+loaded = ARIMAResults.load('modele_LR.pkl')
