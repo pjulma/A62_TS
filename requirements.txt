@@ -23,7 +23,7 @@ datetime
 statsmodels
 #math
 statsmodels
-streamlit
+#streamlit
 warnings
 pylab
 plotly
