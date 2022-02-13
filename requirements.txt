@@ -23,7 +23,7 @@ datetime
 statsmodels==0.12.2
 #math
 
-#streamlit
+streamlit==1.5.1
 #warnings
-pylab
+#pylab
 plotly
