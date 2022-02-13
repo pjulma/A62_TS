@@ -18,6 +18,13 @@ from statsmodels import api as sm
 from sklearn.model_selection import train_test_split as split
 from pandas_datareader.data import DataReader as web
 
+try:
+    from scipy.signal._signaltools import _centered as trim_centered
+except ImportError:
+    # Must be using SciPy <1.8.0 where this function was moved (it's not a
+    # public SciPy function, but we need it here)
+    from scipy.signal.signaltools import _centered as trim_centered
+
 # set_input_date=date.today().strftime('%Y-%m-%d')
 # input_Date= st.text_input("Postcode : ",set_input_date)
 
