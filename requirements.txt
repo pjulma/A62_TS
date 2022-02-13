@@ -20,7 +20,7 @@ WTForms
 pandas_datareader
 #random
 datetime
-statsmodels==0.13.1
+statsmodels==0.12.2
 #math
 #statsmodels
 #streamlit
