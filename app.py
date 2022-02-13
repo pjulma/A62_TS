@@ -13,7 +13,8 @@ import warnings
 from scipy import stats
 from pylab import rcParams
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
-import statsmodels.api as sm
+#import statsmodels.api as sm
+from statsmodels import api as sm
 from sklearn.model_selection import train_test_split as split
 from pandas_datareader.data import DataReader as web
 
