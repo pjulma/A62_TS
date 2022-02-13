@@ -103,14 +103,14 @@ for yr in list_years:
 for enum, yr in enumerate(list_years):
     group_by_yr[enum] = monthly_data[str(yr)]['Close']
     dict_IQR[str(yr)] = stats.iqr(group_by_yr[enum])
-
-# fig = plt.figure(figsize=(20, 10))
-# palette = sns.color_palette("mako_r", 4)
-# fig = sns.barplot(x=monthly_data["Year"], y=monthly_data["Close"], hue='Month', data=monthly_data)
-# fig.set_title("Stock Prices Year & Month Wise", fontsize=15)
-# plt.legend(loc='upper left')
-# plt.plot(fig)
-# plt.show
+    
+# Stock Prices Year & Month Wise
+figSM = plt.figure(figsize=(20, 10))
+palette = sns.color_palette("mako_r", 4)
+a = sns.barplot(x="Year", y="Close", hue='Month', data=monthly_data)
+a.set_title("Stock Prices Year & Month Wise", fontsize=15)
+plt.legend(loc='upper left')
+st.pyplot(figSM)
 
 #
 fig, (ax1, ax2) = plt.subplots(2, figsize=(12, 12))
