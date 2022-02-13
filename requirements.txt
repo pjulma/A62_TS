@@ -24,3 +24,6 @@ statsmodels
 #math
 statsmodels
 streamlit
+warnings
+pylab
+plotly
