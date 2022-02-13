@@ -22,8 +22,8 @@ pandas_datareader
 datetime
 statsmodels==0.12.2
 #math
-#statsmodels
+
 #streamlit
-warnings
+#warnings
 pylab
 plotly
