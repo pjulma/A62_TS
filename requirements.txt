@@ -20,9 +20,9 @@ WTForms
 pandas_datareader
 #random
 datetime
-statsmodels
+statsmodels==0.13.1
 #math
-statsmodels
+#statsmodels
 #streamlit
 warnings
 pylab
