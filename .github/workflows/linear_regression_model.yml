@@ -1,0 +1,20 @@
+name: Time-series-linear-regression
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    container: docker://dvcorg/cml-py3:latest
+   
+    steps:
+    - uses: actions/checkout@v2
+    - name: cml_run
+      env:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        # Your ML workflow goes here
+        pip install -r requirements.txt
+        python pyCode/model_linear.py
+  
