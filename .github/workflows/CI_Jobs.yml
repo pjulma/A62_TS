@@ -43,36 +43,4 @@ jobs:
         git commit -m "New file Added"
         git push
 
-  display:
-
-    runs-on: ubuntu-latest
-    container: docker://dvcorg/cml-py3:latest
-    
-    needs: build:Time-series-ARIMA-model
-    if: always()
-    steps:
-    - uses: actions/checkout@v2
-    - name: Time-series-linear-regression
-      env:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        # Your ML workflow goes here
-        pip install -r requirements.txt
-        python pyCode/model_linear.py
-        
-        # Write your CML report
-        echo "## Les Metriques du modèle de regression linéaire:" >> report_linearR.md
-        cat metrics_linear.txt >> report_linearR.md
-        
-        echo "## Visualisation des données: " >>report_linearR.md
-        cml-publish LinearPrediction.png --md >>report_linearR.md
-         
-        
-        cml-send-comment report_linearR.md
-        
-        # move file from container to github repository
-        git config --global user.email "pierrot25fr@yahoo.fr"
-        git config --global user.name "pjulma"
-        git add report_linearR.md
-        git commit -m "New file Added"
-        git push       
+  
