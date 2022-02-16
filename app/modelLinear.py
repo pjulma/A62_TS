@@ -180,6 +180,7 @@ with open("metrics_linear.txt", 'w') as outfile:
     outfile.write("MAE Test: {0:2.5f}\n".format(mae))
     outfile.write("RMSE Test: {0:2.5f}\n".format(rmse))
     outfile.write("MAPE Test: {0:2.5f}\n".format(mape))
+    # st.metric(label, value, delta=None, delta_color="normal")
 
 #
 # Plot the data
@@ -189,7 +190,7 @@ valid['Predictions'] = predictions
 valid['Erreur'] = predictions - data[training_data_len:]
 
 # Visualize the data
-figl=plt.figure(figsize=(16, 8))
+figl = plt.figure(figsize=(16, 8))
 plt.title('Model - Linear Regression de '+select_stock, fontsize=28)
 plt.xlabel('Date', fontsize=18)
 plt.ylabel('Close Price USD ($)', fontsize=18)
@@ -197,3 +198,20 @@ plt.plot(train['Adj Close'])
 plt.plot(valid[['Adj Close', 'Predictions']])
 plt.legend(['Train', 'Test', 'Predictions'], loc='lower right')
 st.pyplot(figl)
+
+#st.metric(label="Train", value="{0:2.5f}\n".format(mse_train), delta="mse")
+
+# Metriques de performance des données et de test
+st.markdown('Les métriques de performance du modèle de ' + select_stock)
+ # Train
+coltr1, coltr2, coltr3, coltr4 = st.columns(4)
+coltr1.metric("mse", "{0:2.5f}\n".format(mse_train), "train")
+coltr2.metric("rmse", "{0:2.5f}\n".format(rmse_train), "train")
+coltr3.metric("mae", "{0:2.5f}\n".format(mae_train), "tain")
+coltr4.metric("mape", "{0:2.5f}\n".format(mape_train), "train")
+ # Test
+colte1, colte2, colte3, colte4 = st.columns(4)
+colte1.metric("mse", "{0:2.5f}\n".format(mse), "test")
+colte2.metric("rmse", "{0:2.5f}\n".format(rmse), "test")
+colte3.metric("mae", "{0:2.5f}\n".format(mae), "test")
+colte4.metric("mape", "{0:2.5f}\n".format(mape), "test")
