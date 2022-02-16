@@ -17,4 +17,15 @@ jobs:
         # Your ML workflow goes here
         pip install -r requirements.txt
         python pyCode/model_linear.py
-  
+        
+        # Write your CML report
+        echo "## Les Metriques du modèle de regression linéaire:" >> report_linearR.md
+        cat metrics_linear.txt >> report_linearR.md
+        
+        echo "## Visualisation des données: " >>report_linearR.md
+        cml-publish LinearPrediction.png --md >>report_linearR.md
+         
+        
+        cml-send-comment report_linearR.md
+        
+        
