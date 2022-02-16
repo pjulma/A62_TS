@@ -3,7 +3,7 @@ name: Time-series-jobs
 on: [push]
 
 jobs:
-  build:
+  build: Time-series-ARIMA-model
 
     runs-on: ubuntu-latest
     container: docker://dvcorg/cml-py3:latest
