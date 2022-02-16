@@ -1,0 +1,78 @@
+name: Time-series-jobs
+
+on: [push]
+
+jobs:
+  build:Time-series-ARIMA-model
+
+    runs-on: ubuntu-latest
+    container: docker://dvcorg/cml-py3:latest
+   
+    steps:
+    - uses: actions/checkout@v2
+    - name: cml_run
+      env:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        # Your ML workflow goes here
+        pip install -r requirements.txt
+        python pyCode/model.py
+        python pyCode/collect.py
+        python pyCode/eda.py
+        python pyCode/preprocesing.py
+        
+        # Write your CML report
+        echo "## Les Metriques:" >> report.md
+        cat metrics.txt >> report.md
+        
+        echo "## Visualisation des données: " >>report.md
+        cml-publish appleClosePrice.png --md >>report.md
+        cml-publish test_stationarity.png --md >>report.md        
+        cml-publish trainTest.png --md >>report.md        
+        cml-publish applePricePrediction.png --md >>report.md
+        
+        cml-send-comment report.md
+        
+        # read files in the docker container
+        ls -l
+        
+        # move file from container to github repository
+        git config --global user.email "pierrot25fr@yahoo.fr"
+        git config --global user.name "pjulma"
+        git add .
+        git commit -m "New file Added"
+        git push
+
+  build:Time-series-linear-regression
+
+    runs-on: ubuntu-latest
+    container: docker://dvcorg/cml-py3:latest
+    
+    needs: build:Time-series-ARIMA-model
+    if: always()
+    steps:
+    - uses: actions/checkout@v2
+    - name: cml_run
+      env:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        # Your ML workflow goes here
+        pip install -r requirements.txt
+        python pyCode/model_linear.py
+        
+        # Write your CML report
+        echo "## Les Metriques du modèle de regression linéaire:" >> report_linearR.md
+        cat metrics_linear.txt >> report_linearR.md
+        
+        echo "## Visualisation des données: " >>report_linearR.md
+        cml-publish LinearPrediction.png --md >>report_linearR.md
+         
+        
+        cml-send-comment report_linearR.md
+        
+        # move file from container to github repository
+        git config --global user.email "pierrot25fr@yahoo.fr"
+        git config --global user.name "pjulma"
+        git add report_linearR.md
+        git commit -m "New file Added"
+        git push       
