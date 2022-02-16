@@ -3,14 +3,14 @@ name: Time-series-jobs
 on: [push]
 
 jobs:
-  build:Time-series-ARIMA-model
+  build:
 
     runs-on: ubuntu-latest
     container: docker://dvcorg/cml-py3:latest
    
     steps:
     - uses: actions/checkout@v2
-    - name: cml_run
+    - name: Time-series-ARIMA-model
       env:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
       run: |
@@ -43,7 +43,7 @@ jobs:
         git commit -m "New file Added"
         git push
 
-  build:Time-series-linear-regression
+  display:
 
     runs-on: ubuntu-latest
     container: docker://dvcorg/cml-py3:latest
@@ -52,7 +52,7 @@ jobs:
     if: always()
     steps:
     - uses: actions/checkout@v2
-    - name: cml_run
+    - name: Time-series-linear-regression
       env:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
       run: |
