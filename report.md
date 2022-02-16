@@ -268,3 +268,33 @@ MAPE: 0.00813
 ![](https://asset.cml.dev/228f0824a6a05dee1b75bfb4ab51ba69f23d7c77?cml=png)
 ![](https://asset.cml.dev/676d4dc773c6db400485ba7cd4f87cc2c41ffc4a?cml=png)
 ![](https://asset.cml.dev/21590c1072d4e8ac24eac67b9089dd4badca3fd6?cml=png)
+## Les Metriques:
+MSE:  0.00238 
+MAE: 0.04115
+RMSE: 0.04877
+MAPE: 0.00813
+## Visualisation des données: 
+![](https://asset.cml.dev/7c77f58b3146e8492544f38e7b76694991c28b38?cml=png)
+![](https://asset.cml.dev/28d6bd489d7c1874371f4c339c532a23fa46cc87?cml=png)
+![](https://asset.cml.dev/14340a9920261b71e2627830a7b7b1470df7b7b1?cml=png)
+![](https://asset.cml.dev/97488e21cb6daade4365772e14f49f5dcb028b02?cml=png)
+## Les Metriques:
+MSE:  0.00238 
+MAE: 0.04114
+RMSE: 0.04877
+MAPE: 0.00813
+## Visualisation des données: 
+![](https://asset.cml.dev/33745be32731c6384dd8d083f0237436f5388197?cml=png)
+![](https://asset.cml.dev/94a7ad5ed69002cfda64e7149804660492aa968a?cml=png)
+![](https://asset.cml.dev/dab5884115ee3e2efebb94cb89a7978cd498cac7?cml=png)
+![](https://asset.cml.dev/84837d583571d18df37a398dc511f5fd5aad5d86?cml=png)
+## Les Metriques:
+MSE:  0.00238 
+MAE: 0.04115
+RMSE: 0.04877
+MAPE: 0.00813
+## Visualisation des données: 
+![](https://asset.cml.dev/4984193ae6b9c858ab3007bbbc2dfd90719d241f?cml=png)
+![](https://asset.cml.dev/d3f32276294899f7b4e12a0321058b02969ff6a2?cml=png)
+![](https://asset.cml.dev/a6cfc0df49341e28f661dbe61da30a54a8a89af8?cml=png)
+![](https://asset.cml.dev/ea9719403be33f8f7bf917be4491b013ccc4ad73?cml=png)
