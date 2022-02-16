@@ -3,7 +3,7 @@ name: Time-series-jobs
 on: [push]
 
 jobs:
-  build:
+  ARIMA:
 
     runs-on: ubuntu-latest
     container: docker://dvcorg/cml-py3:latest
@@ -43,12 +43,12 @@ jobs:
         git commit -m "New file Added"
         git push
 
-  display:
+  LINEAR:
 
     runs-on: ubuntu-latest
     container: docker://dvcorg/cml-py3:latest
     
-    needs: build
+    needs: ARIMA
     if: always()
     steps:
     - uses: actions/checkout@v2
@@ -73,6 +73,7 @@ jobs:
         # move file from container to github repository
         git config --global user.email "pierrot25fr@yahoo.fr"
         git config --global user.name "pjulma"
+        git pull
         git add report_linearR.md
         git commit -m "New file Added"
         git push     
