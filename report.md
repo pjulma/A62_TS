@@ -238,3 +238,13 @@ MAPE: 0.00939
 ![](https://asset.cml.dev/83061d8518a99b2f9fee4ca9f0cced43c650abcd?cml=png)
 ![](https://asset.cml.dev/d88de6ed4f4504e9dd0d0542263ba0c8b800663c?cml=png)
 ![](https://asset.cml.dev/ca75dba3d3b49bd4fb429ce7987f22ab694b8bc1?cml=png)
+## Les Metriques:
+MSE:  0.00329 
+MAE: 0.04726
+RMSE: 0.05736
+MAPE: 0.00939
+## Visualisation des données: 
+![](https://asset.cml.dev/1cc37585c22d72a7bbf09bc08a45eda6252fe61a?cml=png)
+![](https://asset.cml.dev/83061d8518a99b2f9fee4ca9f0cced43c650abcd?cml=png)
+![](https://asset.cml.dev/d88de6ed4f4504e9dd0d0542263ba0c8b800663c?cml=png)
+![](https://asset.cml.dev/a6f55c4357315ba3f0527707c550d6ef3e453b03?cml=png)
