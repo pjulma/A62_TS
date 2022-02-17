@@ -12,6 +12,13 @@ from pandas_datareader.data import DataReader
 # Pour les horodatages
 from datetime import datetime
 
+from getparameters import parametres
+
+variables = parametres()
+start = variables.getStartDate()
+end = variables.getEndDate()
+stockp = variables.getActionName()
+
 #
 
 # Les actions que nous utiliserons pour cette analyse
@@ -54,7 +61,8 @@ for i, company in enumerate(company_list, 1):
 
 #
 #  ARIMA
-stock_data = AAPL
+#stock_data = AAPL
+stock_data = stockp
 #plot close price
 plt.figure(figsize=(15,6))
 plt.grid(True)
