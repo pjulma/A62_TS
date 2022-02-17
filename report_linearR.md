@@ -42,3 +42,14 @@ RMSE Test: 0.77574
 MAPE Test: 0.03444
 ## Visualisation des données: 
 ![](https://asset.cml.dev/532e8a1ce0dd58a4a804383cefbe80dce8f06bac?cml=png)
+## Les Metriques du modèle de regression linéaire:
+MSE Train:  0.00022 
+MAE Train: 0.01077
+RMSE Train: 0.01491
+MAPE Train: 0.02262
+MSE Test:  0.60176 
+MAE Test: 0.55090
+RMSE Test: 0.77573
+MAPE Test: 0.03443
+## Visualisation des données: 
+![](https://asset.cml.dev/c975207b2e1df87b044d089d00ca5dde12a8dc47?cml=png)
