@@ -61,8 +61,7 @@ for i, company in enumerate(company_list, 1):
 
 #
 #  ARIMA
-#stock_data = AAPL
-stock_data = stockp
+stock_data = AAPL
 #plot close price
 plt.figure(figsize=(15,6))
 plt.grid(True)
