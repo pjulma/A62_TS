@@ -7,13 +7,23 @@ from pandas_datareader.data import DataReader
 from datetime import datetime
 import matplotlib.pyplot as plt
 
+from getparameters import parametres
 
-end = datetime.now()
-start = datetime(end.year - 10, end.month, end.day)
+variables = parametres()
+start = variables.getStartDate()
+end = variables.getEndDate()
+stock = variables.getActionName()
 
 # Get the stock quote
-stock='AAPL'
 df = DataReader(stock, data_source='yahoo', start=start, end=end)
+
+
+#end = datetime.now()
+#start = datetime(end.year - 10, end.month, end.day)
+
+# Get the stock quote
+#stock='AAPL'
+#df = DataReader(stock, data_source='yahoo', start=start, end=end)
 
 #Show teh data
 df
