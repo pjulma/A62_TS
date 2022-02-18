@@ -1,6 +1,6 @@
 
 class parametres:
-    actionName = "AAL"
+    actionName = "MAR"
     startDate = '2012-01-01'
     endDate = '2022-02-28'
 
