@@ -13,16 +13,22 @@ from sklearn.linear_model import LinearRegression
 import pickle
 
 st.title("Predicion de l'action: ")
-input_Date = st.date_input('start date')
+input_Date = st.date_input('start date', date(2012, 1, 1))
+input_end = st.date_input('end date', date.today())
 
 if len(str(input_Date)) > 1:
-    StartDate = '2012-01-01'
-    # input_Date
+    StartDate = input_Date
+    # '2012-01-01'
     EndDate = date.today().strftime('%Y-%m-%d')
 else:
     StartDate = '2012-01-01'
     EndDate = date.today().strftime('%Y-%m-%d')
 
+if len(str(input_end)) > 1:
+    EndDate = input_end
+else:
+    EndDate = input_end
+    
 stocks = ('AAL', 'AAPL', 'AMZN', 'MAR', 'NFLX', 'WMT')
 select_stock = st.selectbox('selection du dataset pour la prediction', stocks)
 
@@ -41,7 +47,7 @@ df_load = st.text("Chargement des données ...")
 df = load_data(select_stock)
 df_load.text("Chargement des données terminées")
 #
-st.subheader("Données brutes de " + select_stock)
+st.markdown("Données brutes de " + select_stock+" du "+str(StartDate)+" au "+str(EndDate))
 st.write(df.tail())
 
 
