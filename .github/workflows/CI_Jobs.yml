@@ -16,22 +16,32 @@ jobs:
       run: |
         # Your ML workflow goes here
         pip install -r requirements.txt
-        python pyCode/model.py
-        python pyCode/collect.py
-        python pyCode/eda.py
-        python pyCode/preprocesing.py
+        #python pyCode/model.py
+        #python pyCode/collect.py
+        #python pyCode/eda.py
+        #python pyCode/preprocesing.py
+        
+        python pyCode/model_arima.py        
         
         # Write your CML report
-        echo "## Les Metriques:" >> report.md
-        cat metrics.txt >> report.md
+        #echo "## Les Metriques:" >> report.md
+        #cat metrics.txt >> report.md
         
-        echo "## Visualisation des données: " >>report.md
-        cml-publish appleClosePrice.png --md >>report.md
-        cml-publish test_stationarity.png --md >>report.md        
-        cml-publish trainTest.png --md >>report.md        
-        cml-publish applePricePrediction.png --md >>report.md
+        echo "## Les Metriques du modèle arima:" >> report_arima.md
+        cat metrics_arima.txt >> report_arima.md       
         
-        cml-send-comment report.md
+        #echo "## Visualisation des données: " >>report.md
+        #cml-publish appleClosePrice.png --md >>report.md
+        #cml-publish test_stationarity.png --md >>report.md        
+        #cml-publish trainTest.png --md >>report.md        
+        #cml-publish applePricePrediction.png --md >>report.md
+        
+        echo "## Visualisation des données: " >>report_arima.md
+        cml-publish priceprediction.png --md >>report_arima.md
+        
+        #cml-send-comment report.md
+        
+        cml-send-comment report_arima.md
         
         # read files in the docker container
         ls -l
