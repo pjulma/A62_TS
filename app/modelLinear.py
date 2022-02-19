@@ -62,6 +62,8 @@ def plot_data():
 
 plot_data()
 
+df = df.set_index('Date')
+
 data = df.filter(['Adj Close'])
 # Convert the dataframe to a numpy array
 dataset = data.values
