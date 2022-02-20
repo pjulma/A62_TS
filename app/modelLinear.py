@@ -12,10 +12,32 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.linear_model import LinearRegression
 import pickle
 
-st.title("Predicion de l'action: ")
-input_Date = st.date_input('start date', date(2012, 1, 1))
-input_end = st.date_input('end date', date.today())
+with st.expander("Nous répondrons aux questions suivantes en cours de route"):
+    st.write("""
+        1. Quelle a été la variation du prix de l'action au fil du temps?.
+        2. Quel était le rendement quotidien du stock en moyenne?.
+        3. Quelle était la moyenne mobile des différentes actions?.
+        4. Quelle était la corrélation entre les différentes actions?.
+        5. Quelle valeur mettons-nous en danger en investissant dans une action particulière?.
+        6. Comment pouvons-nous tenter de prédire le comportement futur des stocks?.
+        7. Prédire le cours de clôture du cours de l'action inc en utilisant RF.
+        """)
+        
+#st.title("Analyse boursière - Prédiction du prix des actions: ")
+st.text("Analyse boursière - Prédiction du prix des actions: ")
+#input_Date = st.date_input('start date', date(2012, 1, 1))
+#input_end = st.date_input('end date', date.today())
 
+input_Date = st.sidebar.date_input('Start date', date(2012, 1, 1))
+input_end = st.sidebar.date_input('End date', date.today())
+select_stock = st.sidebar.selectbox('Action', ('AAL', 'AAPL', 'AMZN', 'MAR', 'NFLX', 'WMT'))
+
+st.sidebar.text("Travaux réalisés par :")
+st.sidebar.text("David Jeanette")
+st.sidebar.text("David Medina")
+st.sidebar.text("Julma Pierrot")
+st.sidebar.text("Raul Chavez Aquino")
+ 
 if len(str(input_Date)) > 1:
     StartDate = input_Date
     # '2012-01-01'
@@ -29,8 +51,8 @@ if len(str(input_end)) > 1:
 else:
     EndDate = input_end
     
-stocks = ('AAL', 'AAPL', 'AMZN', 'MAR', 'NFLX', 'WMT')
-select_stock = st.selectbox('selection du dataset pour la prediction', stocks)
+#stocks = ('AAL', 'AAPL', 'AMZN', 'MAR', 'NFLX', 'WMT')
+#select_stock = st.selectbox('selection du dataset pour la prediction', stocks)
 
 n_years = st.slider('Année de la prediction :', 1, 6)
 period = n_years * 365
